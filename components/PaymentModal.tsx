@@ -5,6 +5,7 @@ interface PaymentModalProps {
   onClose: () => void;
   recipient: User;
   amount: string;
+  expirationHours?: string;
   currency?: string;
   isLoading?: boolean;
   onConfirm: () => void;
@@ -15,6 +16,7 @@ export default function PaymentModal({
   onClose, 
   recipient, 
   amount, 
+  expirationHours = "24",
   currency = "ETH",
   isLoading = false, 
   onConfirm 
@@ -23,7 +25,7 @@ export default function PaymentModal({
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl transform transition-all duration-300 scale-100">
+      <div className="bg-slate-800/90 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 max-w-md w-full shadow-2xl transform transition-all duration-300 scale-100">
         <div className="text-center">
           {/* Icon */}
           <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
@@ -33,11 +35,11 @@ export default function PaymentModal({
           </div>
           
           {/* Title */}
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">Confirm Payment</h3>
-          <p className="text-gray-600 mb-6">Review your payment details</p>
+          <h3 className="text-2xl font-bold text-white mb-2">Confirm Payment</h3>
+          <p className="text-slate-300 mb-6">Review your payment details</p>
           
           {/* Payment Details */}
-          <div className="bg-gray-50 rounded-2xl p-6 mb-6">
+          <div className="bg-slate-700/50 rounded-2xl p-6 mb-6">
             {/* Recipient Info */}
             <div className="flex items-center justify-center mb-4">
               <div className="text-center">
@@ -46,24 +48,24 @@ export default function PaymentModal({
                     {recipient.name.charAt(0).toUpperCase()}
                   </span>
                 </div>
-                <p className="font-semibold text-gray-900 text-lg">{recipient.name}</p>
-                <p className="text-gray-500 text-sm font-mono break-all">{recipient.walletAddress}</p>
+                <p className="font-semibold text-white text-lg">{recipient.name}</p>
+                <p className="text-slate-400 text-sm font-mono break-all">{recipient.walletAddress}</p>
               </div>
             </div>
             
             {/* Divider */}
-            <div className="border-t border-gray-200 my-4"></div>
+            <div className="border-t border-slate-600 my-4"></div>
             
             {/* Amount */}
             <div className="text-center mb-4">
-              <p className="text-gray-600 text-sm mb-1">Amount</p>
-              <p className="font-bold text-3xl text-gray-900">{amount} {currency}</p>
+              <p className="text-slate-300 text-sm mb-1">Amount</p>
+              <p className="font-bold text-3xl text-white">{amount} {currency}</p>
             </div>
             
             {/* Additional Info */}
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-600">Expires:</span>
-              <span className="text-gray-900 font-medium">24 hours</span>
+              <span className="text-slate-300">Expires:</span>
+              <span className="text-white font-medium">{expirationHours} hours</span>
             </div>
           </div>
           
@@ -87,7 +89,7 @@ export default function PaymentModal({
             <button
               onClick={onClose}
               disabled={isLoading}
-              className="w-full py-4 bg-gray-200 text-gray-800 rounded-2xl font-semibold hover:bg-gray-300 disabled:opacity-50 transition-colors"
+              className="w-full py-4 bg-slate-600 text-white rounded-2xl font-semibold hover:bg-slate-700 disabled:opacity-50 transition-colors"
             >
               Cancel
             </button>

@@ -5,6 +5,8 @@ import ContextProvider from "@/context";
 import { headers } from "next/headers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -29,6 +31,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Page content */}
           <main>{children}</main>
           {/* <Footer /> */}
+          
+          {/* Toast notifications */}
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            className="custom-toast-container"
+          />
         </ContextProvider>
       </body>
     </html>

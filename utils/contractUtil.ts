@@ -24,15 +24,35 @@ export async function depositForReceiver(
   ethAmount: string
 ): Promise<any> {
   try {
-    return await writeContract(config, {
+    console.log('DepositForReceiver called with parameters:', {
+      receiverAddress,
+      expiryTimestamp,
+      ethAmount,
+      contractAddress,
+      functionName: 'depositFor'
+    });
+
+    const result = await writeContract(config, {
       abi: ABI,
       address: contractAddress,
       functionName: 'depositFor',
       args: [receiverAddress, BigInt(expiryTimestamp)],
       value: BigInt(ethAmount), // ETH amount in wei
     });
+
+    console.log('DepositForReceiver transaction result:', result);
+    return result;
   } catch (error) {
-    console.error('Error depositing for receiver:', error);
+    console.error('Error depositing for receiver - detailed error:', {
+      error,
+      errorMessage: error instanceof Error ? error.message : 'Unknown error',
+      errorStack: error instanceof Error ? error.stack : undefined,
+      errorName: error instanceof Error ? error.name : 'Unknown',
+      receiverAddress,
+      expiryTimestamp,
+      ethAmount,
+      contractAddress
+    });
     throw error;
   }
 }

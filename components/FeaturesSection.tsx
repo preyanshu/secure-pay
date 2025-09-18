@@ -5,9 +5,9 @@ export default function FeaturesSection() {
     <div className="text-center mb-16">
       <h2 className="text-3xl font-bold text-white mb-12">Why Choose SecurePay?</h2>
       <div className="grid md:grid-cols-3 gap-8">
-        <FeatureCard title="No Wrong Addresses" colorFrom="blue-500" colorTo="yellow-500" description="Send crypto using simple usernames instead of complex wallet addresses" />
-        <FeatureCard title="Escrow Protected" colorFrom="green-500" colorTo="teal-600" description="Funds held safely in smart contract until receiver withdraws" />
-        <FeatureCard title="Instant Withdrawals" colorFrom="purple-500" colorTo="pink-600" description="Recipients can withdraw their funds immediately" />
+        <FeatureCard title="Username Payments" colorFrom="blue-500" colorTo="yellow-500" description="Send crypto using simple usernames instead of complex wallet addresses" />
+        <FeatureCard title="Reversible Payments" colorFrom="green-500" colorTo="teal-600" description="Payments can be reversed if not claimed within the expiration time" />
+        <FeatureCard title="Secure & Fast" colorFrom="purple-500" colorTo="pink-600" description="Instant payments with built-in security and expiration protection" />
       </div>
     </div>
   );

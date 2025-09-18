@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { User } from "@/types/models";
 
 interface RecipientSelectorProps {
-  users: User[];
+  users?: User[];
   currentUserAddress?: string;
   onRecipientSelect: (user: User) => void;
   selectedRecipient: User | null;
@@ -17,15 +17,44 @@ export default function RecipientSelector({
   const [recipientName, setRecipientName] = useState("");
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [allUsers, setAllUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  // Fetch users when typing
+  useEffect(() => {
+    const fetchUsers = async () => {
+      if (recipientName.trim().length >= 2) {
+        setLoading(true);
+        try {
+          const res = await fetch("/api/users");
+          const data = await res.json();
+          if (data.success) {
+            // filter out logged-in user from the list
+            const filtered = data.users.filter(
+              (u: User) => u.walletAddress.toLowerCase() !== currentUserAddress?.toLowerCase()
+            );
+            setAllUsers(filtered);
+          }
+        } catch (err) {
+          console.error("Error fetching users:", err);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchUsers();
+  }, [recipientName, currentUserAddress]);
 
   // Filter users based on recipient name input
   useEffect(() => {
-    if (recipientName.trim() && users.length > 0) {
-      const filtered = users
-        .filter(user => user.walletAddress.toLowerCase() !== currentUserAddress?.toLowerCase())
+    if (recipientName.trim() && allUsers.length > 0) {
+      // Remove @ prefix for searching
+      const searchTerm = recipientName.startsWith('@') ? recipientName.slice(1) : recipientName;
+      const filtered = allUsers
         .filter(user => 
-          user.name.toLowerCase().includes(recipientName.toLowerCase()) ||
-          user.walletAddress.toLowerCase().includes(recipientName.toLowerCase())
+          user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          user.walletAddress.toLowerCase().includes(searchTerm.toLowerCase())
         )
         .slice(0, 5); // Show max 5 results
       setFilteredUsers(filtered);
@@ -34,16 +63,17 @@ export default function RecipientSelector({
       setFilteredUsers([]);
       setShowDropdown(false);
     }
-  }, [recipientName, users, currentUserAddress]);
+  }, [recipientName, allUsers]);
 
   const handleRecipientSelect = (user: User) => {
     onRecipientSelect(user);
-    setRecipientName(user.name);
+    setRecipientName(`@${user.name}`);
     setShowDropdown(false);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRecipientName(e.target.value);
+    const value = e.target.value;
+    setRecipientName(value);
     if (selectedRecipient) {
       onRecipientSelect(null as any); // Clear selection when typing
     }
@@ -60,32 +90,42 @@ export default function RecipientSelector({
           type="text"
           value={recipientName}
           onChange={handleInputChange}
-          placeholder="Enter recipient name or address..."
+          placeholder="@username or wallet address..."
           className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
         />
         
         {/* Dropdown */}
         {showDropdown && (
           <div className="absolute top-full left-0 right-0 mt-1 bg-slate-700 border border-slate-600 rounded-xl shadow-xl z-10 max-h-60 overflow-y-auto">
-            {filteredUsers.map((user) => (
-              <div
-                key={user.walletAddress}
-                onClick={() => handleRecipientSelect(user)}
-                className="px-4 py-3 hover:bg-slate-600 cursor-pointer transition-colors border-b border-slate-600/30 last:border-b-0"
-              >
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">
-                      {user.name.charAt(0).toUpperCase()}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="text-white font-medium">{user.name}</p>
-                    <p className="text-slate-400 text-xs font-mono">{user.walletAddress}</p>
+            {loading ? (
+              <div className="px-4 py-3 text-center text-slate-400">
+                Loading users...
+              </div>
+            ) : filteredUsers.length > 0 ? (
+              filteredUsers.map((user) => (
+                <div
+                  key={user.walletAddress}
+                  onClick={() => handleRecipientSelect(user)}
+                  className="px-4 py-3 hover:bg-slate-600 cursor-pointer transition-colors border-b border-slate-600/30 last:border-b-0"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">
+                        {user.name.charAt(0).toUpperCase()}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-white font-medium">{user.name}</p>
+                      <p className="text-slate-400 text-xs font-mono">{user.walletAddress}</p>
+                    </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="px-4 py-3 text-center text-slate-400">
+                No users found
               </div>
-            ))}
+            )}
           </div>
         )}
       </div>
@@ -100,7 +140,7 @@ export default function RecipientSelector({
               </span>
             </div>
             <div>
-              <p className="text-green-400 font-semibold">{selectedRecipient.name}</p>
+              <p className="text-green-400 font-semibold">@{selectedRecipient.name}</p>
               <p className="text-slate-400 text-sm font-mono">{selectedRecipient.walletAddress}</p>
             </div>
           </div>

@@ -3,11 +3,12 @@ import { User } from "@/types/models";
 import RecipientSelector from "./RecipientSelector";
 import AmountInput from "./AmountInput";
 import PaymentModal from "./PaymentModal";
+import { toast } from 'react-toastify';
 
 interface MakePaymentFormProps {
-  users: User[];
+  users?: User[];
   currentUserAddress?: string;
-  onPaymentComplete: (recipient: User, amount: string) => void;
+  onPaymentComplete: (recipient: User, amount: string, expirationHours: string) => void;
 }
 
 export default function MakePaymentForm({ 
@@ -17,6 +18,7 @@ export default function MakePaymentForm({
 }: MakePaymentFormProps) {
   const [selectedRecipient, setSelectedRecipient] = useState<User | null>(null);
   const [amount, setAmount] = useState("");
+  const [expirationHours, setExpirationHours] = useState("24");
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
 
@@ -28,13 +30,21 @@ export default function MakePaymentForm({
   const confirmPayment = async () => {
     if (!selectedRecipient || !amount) return;
     
+    // Validate expiration hours before proceeding
+    const hours = parseFloat(expirationHours);
+    if (!Number.isFinite(hours) || hours <= 0) {
+      toast.error(`Invalid expiration hours: ${expirationHours}. Please enter a positive number.`);
+      return;
+    }
+    
     setPaymentLoading(true);
     try {
-      await onPaymentComplete(selectedRecipient, amount);
+      await onPaymentComplete(selectedRecipient, amount, expirationHours);
       
       // Reset form
       setSelectedRecipient(null);
       setAmount("");
+      setExpirationHours("24");
       setShowPaymentModal(false);
       
     } catch (error) {
@@ -47,14 +57,14 @@ export default function MakePaymentForm({
 
   return (
     <>
-      <div className="max-w-2xl mx-auto">
+      <div className="w-full max-w-4xl mx-auto max-h-[80vh] overflow-y-auto">
         <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Send Payment</h2>
           
           <div className="space-y-6">
             {/* Recipient Selector */}
             <RecipientSelector
-              users={users}
+              users={users || []}
               currentUserAddress={currentUserAddress}
               onRecipientSelect={setSelectedRecipient}
               selectedRecipient={selectedRecipient}
@@ -65,6 +75,27 @@ export default function MakePaymentForm({
               amount={amount}
               onAmountChange={setAmount}
             />
+
+            {/* Expiration Time Input */}
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-slate-300">
+                Expiration Time
+              </label>
+              <div className="flex items-center space-x-3">
+                <input
+                  type="number"
+                  min="0.1"
+                  max="168"
+                  step="0.1"
+                  value={expirationHours}
+                  onChange={(e) => setExpirationHours(e.target.value)}
+                  className="flex-1 px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  placeholder="24"
+                />
+                <span className="text-slate-300 font-medium">hours</span>
+              </div>
+              <p className="text-xs text-slate-400">Payment will expire after this time (0.1-168 hours)</p>
+            </div>
 
             {/* Continue Button */}
             <button
@@ -85,6 +116,7 @@ export default function MakePaymentForm({
           onClose={() => setShowPaymentModal(false)}
           recipient={selectedRecipient}
           amount={amount}
+          expirationHours={expirationHours}
           isLoading={paymentLoading}
           onConfirm={confirmPayment}
         />

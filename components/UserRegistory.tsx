@@ -4,7 +4,11 @@ import { useState } from "react";
 import { useAccount } from "wagmi";
 import { useRouter } from "next/navigation";
 
-export default function UserRegistory() {
+interface UserRegistoryProps {
+  onRegistrationComplete?: () => void;
+}
+
+export default function UserRegistory({ onRegistrationComplete }: UserRegistoryProps) {
   const { address, isConnected } = useAccount();
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,7 +33,11 @@ export default function UserRegistory() {
       if (data.success) {
         setMessage("✅ Registered successfully!");
         setTimeout(() => {
-          router.push("/pay");
+          if (onRegistrationComplete) {
+            onRegistrationComplete();
+          } else {
+            router.push("/pay");
+          }
         }, 1000);
       } else setMessage(`❌ ${data.error}`);
     } catch (err) {

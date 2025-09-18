@@ -5,9 +5,9 @@ interface PaymentSidebarProps {
 
 export default function PaymentSidebar({ activeTab, onTabChange }: PaymentSidebarProps) {
   return (
-    <div className="w-80 bg-slate-800/50 border-r border-slate-700/50 p-6">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white mb-2">Payment Hub</h1>
+    <div className="w-80 bg-slate-800/50 border-r border-slate-700/50 p-4">
+      <div className="mb-6">
+        <h1 className="text-xl font-bold text-white mb-2">Payment Hub</h1>
         <p className="text-slate-400 text-sm">Manage your crypto payments</p>
       </div>
       
@@ -15,7 +15,7 @@ export default function PaymentSidebar({ activeTab, onTabChange }: PaymentSideba
       <div className="space-y-2">
         <button
           onClick={() => onTabChange('make')}
-          className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+          className={`w-full flex items-center space-x-3 px-4 py-2.5 rounded-xl transition-all duration-200 ${
             activeTab === 'make'
               ? 'bg-blue-600 text-white shadow-lg'
               : 'text-slate-300 hover:bg-slate-700/50 hover:text-white'
@@ -29,7 +29,7 @@ export default function PaymentSidebar({ activeTab, onTabChange }: PaymentSideba
         
         <button
           onClick={() => onTabChange('view')}
-          className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+          className={`w-full flex items-center space-x-3 px-4 py-2.5 rounded-xl transition-all duration-200 ${
             activeTab === 'view'
               ? 'bg-blue-600 text-white shadow-lg'
               : 'text-slate-300 hover:bg-slate-700/50 hover:text-white'
