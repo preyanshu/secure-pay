@@ -1,4 +1,5 @@
 import { User } from "@/types/models";
+import { TOKEN_SYMBOL } from "@/config";
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -17,7 +18,7 @@ export default function PaymentModal({
   recipient, 
   amount, 
   expirationHours = "24",
-  currency = "ETH",
+  currency = TOKEN_SYMBOL,
   isLoading = false, 
   onConfirm 
 }: PaymentModalProps) {

@@ -1,3 +1,5 @@
+import { TOKEN_SYMBOL } from "@/config";
+
 interface AmountInputProps {
   amount: string;
   onAmountChange: (amount: string) => void;
@@ -10,7 +12,7 @@ interface AmountInputProps {
 export default function AmountInput({ 
   amount, 
   onAmountChange, 
-  currency = "ETH",
+  currency = TOKEN_SYMBOL,
   placeholder = "0.00",
   min = "0",
   step = "0.001"

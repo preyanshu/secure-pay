@@ -6,7 +6,7 @@ export interface IPayment extends Document {
   receiverAddress: string;
   receiverName: string;
   amount: string; // in wei
-  amountInEth: string; // in ETH for display
+  amountInEth: string; // in token units for display
   expirationTimestamp: number;
   status: 'pending' | 'completed' | 'failed' | 'expired';
   transactionHash?: string;

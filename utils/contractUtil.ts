@@ -17,7 +17,7 @@ interface PaymentData {
   withdrawn: boolean;
 }
 
-// Deposit ETH for a receiver with expiry timestamp
+// Deposit tokens for a receiver with expiry timestamp
 export async function depositForReceiver(
   receiverAddress: string, 
   expiryTimestamp: number, 
@@ -37,7 +37,7 @@ export async function depositForReceiver(
       address: contractAddress,
       functionName: 'depositFor',
       args: [receiverAddress, BigInt(expiryTimestamp)],
-      value: BigInt(ethAmount), // ETH amount in wei
+      value: BigInt(ethAmount), // Token amount in wei
     });
 
     console.log('DepositForReceiver transaction result:', result);

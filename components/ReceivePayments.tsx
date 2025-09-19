@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { withdrawFromSender } from "@/utils/contractUtil";
 import { waitForTransactionReceipt } from '@wagmi/core';
-import { config } from '@/config';
+import { config, TOKEN_SYMBOL } from '@/config';
 import { toast } from 'react-toastify';
 
 interface Payment {
@@ -55,7 +55,7 @@ export default function ReceivePayments({ userAddress }: ReceivePaymentsProps) {
               timestamp: payment.createdAt,
               status: isExpired ? 'expired' : payment.status,
               expiryTimestamp: payment.expirationTimestamp?.toString(),
-              currency: 'ETH',
+              currency: TOKEN_SYMBOL,
               transactionHash: payment.transactionHash
             };
           });
@@ -122,17 +122,17 @@ export default function ReceivePayments({ userAddress }: ReceivePaymentsProps) {
     }
   };
 
-  const getTimeUntilExpiry = (expiryTimestamp: number) => {
-    const now = Math.floor(Date.now() / 1000); // Convert to seconds
+  const getTimeUntilExpiry = (expiryTimestamp:number) => {
+    const now = Math.floor(Date.now() / 1000); // current time in seconds
     const timeLeft = expiryTimestamp - now;
-    
+  
     if (timeLeft <= 0) {
       return 'Expired';
     }
-    
-    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    
+  
+    const hours = Math.floor(timeLeft / 3600); // convert seconds -> hours
+    const minutes = Math.floor((timeLeft % 3600) / 60); // remaining seconds -> minutes
+  
     if (hours > 0) {
       return `${hours}h ${minutes}m`;
     } else {
@@ -293,7 +293,7 @@ export default function ReceivePayments({ userAddress }: ReceivePaymentsProps) {
                 
                 <div className="text-right">
                   <p className="text-2xl font-bold text-white">
-                    {payment.amount} {payment.currency || 'ETH'}
+                    {payment.amount} {payment.currency || TOKEN_SYMBOL}
                   </p>
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(payment.status)}`}>
                     {payment.status.charAt(0).toUpperCase() + payment.status.slice(1)}

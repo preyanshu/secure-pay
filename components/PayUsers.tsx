@@ -170,7 +170,7 @@ export default function PayPage() {
                   const expirationTimestamp = Math.floor(Date.now() / 1000) + Math.floor(hours * 60 * 60);
 
                   
-                  // Convert ETH amount to wei (BigInt)
+                  // Convert token amount to wei (BigInt)
                   const ethAmount = parseFloat(amount);
                   const weiAmount = BigInt(Math.floor(ethAmount * 1e18));
 
