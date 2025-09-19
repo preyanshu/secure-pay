@@ -18,6 +18,7 @@ With Secure-Pay, crypto payments aren't just faster and cheaper—they're user-f
 | Live Demo | 🔗 [Open Secure-Pay](https://secure-pay.preyanshu.me) |
 | Demo Video | 🔗 [Watch on YouTube](https://www.youtube.com/watch?v=dTbT9lKF738) |
 | SomniaScan – Smart Contract | 🔗 [Contract Address](https://shannon-explorer.somnia.network/address/0x0b7b80c745Ee4c47Ef0520269be086eeD7868580?tab=txs) |
+| Pitch Deck | 🔗 [View Presentation](https://docs.google.com/presentation/d/1niEm5j5eUhE0_fxOdb4njMoavFEFQMAAB8DRtqt0In8/edit?slide=id.p7#slide=id.p7) |
 
 ## The Problems in Web3 Payments Today
 
