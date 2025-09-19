@@ -1,4 +1,4 @@
-# Secure-Pay – Reversible Crypto Payments for the Somnia Ecosystem
+# Secure-Pay – Escrow Payment System for the Somnia Ecosystem
 
 ## Overview
 
@@ -12,11 +12,11 @@ With Secure-Pay, crypto payments aren't just faster and cheaper—they're user-f
 
 | Resource | Resource Link |
 |----------|---------------|
-| GitHub Repository | 🔗 [View on GitHub](https://github.com/preyanshu/aecure-Pay) |
-| Live Demo | 🔗 [Open Secure-Pay](https://your-demo-url.com) |
+| GitHub Repository | 🔗 [View on GitHub](https://github.com/preyanshu/secure-pay) |
+| Live Demo | 🔗 [Open Secure-Pay](https://secure-pay.preyanshu.me) |
 | Demo Video | 🔗 [Watch on YouTube](https://youtube.com/watch?v=your-video) |
-| SomniaScan – Escrow Contract | 🔗 [Contract Address](https://somnia.xyz/address/your-contract-address) |
-| Architecture Diagram | 🔗 [View Architecture](https://your-architecture-diagram.com) |
+| SomniaScan – Escrow Contract | 🔗 [Contract Address](https://shannon-explorer.somnia.network/address/0x0b7b80c745Ee4c47Ef0520269be086eeD7868580?tab=txs) |
+
 
 ## The Problems in Web3 Payments Today
 
@@ -39,17 +39,14 @@ With Secure-Pay, crypto payments aren't just faster and cheaper—they're user-f
 
 ## Why Secure-Pay Stands Out from Other Web3 Payment Solutions
 
-### Full Escrow Support
+### Full Lifecycle
 We're not just payments—we handle the entire escrow lifecycle, including deposits, claims, refunds, and expiration management, all on-chain.
 
 ### Time-Bound Security
 Using smart contract logic, payments automatically expire and refund if not claimed within the specified timeframe, preventing lost funds.
 
 ### Smart Contract Architecture
-Every payment is secured by our deployed escrow smart contract, ensuring funds are protected and transactions are transparent.
-
-### Two-Way Communication
-Automated notifications ensure users always know when payments are created, claimed, or expired—unlike most tools that rely only on blockchain explorers.
+Payment is secured by our deployed smart contract, ensuring funds are protected and transactions are transparent.
 
 ### Integrated User Portal
 Other tools focus only on basic transfers—Secure-Pay gives users their own secure space to track payments, manage escrows, and view transaction history.
@@ -210,7 +207,7 @@ Our roadmap includes AI-powered payment optimization, multi-token support, and a
 
 1. **Connect Wallet** – Connect your Somnia testnet wallet
 2. **Register** – Create your user profile
-3. **Send Payment** – Create an escrow payment with expiration time
+3. **Send Payment** – Create a payment with expiration time
 4. **Receive Payment** – Claim incoming payments before they expire
 5. **Track Status** – Monitor all your payment activities
 
@@ -218,7 +215,7 @@ Our roadmap includes AI-powered payment optimization, multi-token support, and a
 
 | Network | Contract Address | Explorer |
 |---------|------------------|----------|
-| Somnia Testnet | `0x...` | [View on SomniaScan](https://somnia.xyz/address/0x...) |
+| Somnia Testnet | `0x0b7b80c745Ee4c47Ef0520269be086eeD7868580` | [View on SomniaScan](https://shannon-explorer.somnia.network/address/0x0b7b80c745Ee4c47Ef0520269be086eeD7868580?tab=txs) |
 
 ## Contributing
 
@@ -236,14 +233,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Team
 
-- **Developer**: [Your Name](https://github.com/yourusername)
-- **Contact**: [your.email@example.com](mailto:your.email@example.com)
+- **Developer**: [Your Name](https://github.com/preyanshu)
+- **Contact**: [your.email@example.com](mailto:mishrapreyanshu@gmail.com)
 
-## Acknowledgments
-
-- Somnia team for the amazing blockchain infrastructure
-- OpenZeppelin for smart contract security patterns
-- The Web3 community for inspiration and support
 
 ## Support
 
