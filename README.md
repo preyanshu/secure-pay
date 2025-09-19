@@ -1,5 +1,8 @@
 # Secure-Pay – Reversible Payment System for the Somnia Ecosystem
 
+<img width="1846" height="989" alt="image" src="https://github.com/user-attachments/assets/a20b441a-cda7-4248-bca1-6401464d9905" />
+
+
 ## Overview
 
 Secure-Pay is a next-generation reversible crypto payment platform built natively for the Somnia ecosystem, designed to revolutionize how users send and receive cryptocurrency using simple usernames instead of complex wallet addresses.
@@ -206,10 +209,24 @@ Our roadmap includes AI-powered payment optimization, multi-token support, and a
 ### Usage
 
 1. **Connect Wallet** – Connect your Somnia testnet wallet
-2. **Register** – Create your user profile
-3. **Send Payment** – Create a payment with expiration time
-4. **Receive Payment** – Claim incoming payments before they expire
-5. **Track Status** – Monitor all your payment activities
+    <img width="1846" height="989" alt="image" src="https://github.com/user-attachments/assets/b53c0216-8159-4437-9bea-50915779ee1d" />
+
+3. **Register** – Create your user profile
+4. <img width="1846" height="989" alt="image" src="https://github.com/user-attachments/assets/5d50b9e8-1322-477e-9a40-265565a5b592" />
+
+5. **Send Payment** – Create a payment with expiration time
+6. <img width="1846" height="989" alt="image" src="https://github.com/user-attachments/assets/0403860b-83c1-41d1-9ac2-1581955621e2" />
+
+<img width="1846" height="989" alt="image" src="https://github.com/user-attachments/assets/34202eba-cedb-4ce1-be60-79460c3b14f3" />
+
+
+7. **Receive Payment** – Claim incoming payments before they expire
+   <img width="1846" height="989" alt="image" src="https://github.com/user-attachments/assets/0e5a4293-d4fa-497c-aa65-96fd30ac0363" />
+
+   
+9. **Reverse Payment** – Reverse payments if they expire
+
+<img width="1846" height="989" alt="image" src="https://github.com/user-attachments/assets/f899dcfd-e49b-4e51-9700-35d5ef896bc8" />
 
 ## Contract Addresses
 
