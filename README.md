@@ -1,10 +1,10 @@
-# Secure-Pay – Escrow Payment System for the Somnia Ecosystem
+# Secure-Pay – Reversible Payment System for the Somnia Ecosystem
 
 ## Overview
 
 Secure-Pay is a next-generation reversible crypto payment platform built natively for the Somnia ecosystem, designed to revolutionize how users send and receive cryptocurrency using simple usernames instead of complex wallet addresses.
 
-From a single, intuitive dashboard, users can send crypto payments using usernames with customizable expiration times, claim payments before they expire, automatically refund unclaimed payments, and track all transaction history with complete on-chain transparency. Every payment is secured by smart contract escrow logic, ensuring funds are protected until claimed or automatically returned to the sender.
+From a single, intuitive dashboard, users can send crypto payments using usernames with customizable expiration times, claim payments before they expire, automatically refund unclaimed payments, and track all transaction history with complete on-chain transparency. Every payment is secured by smart contract logic, ensuring funds are protected until claimed or automatically returned to the sender.
 
 With Secure-Pay, crypto payments aren't just faster and cheaper—they're user-friendly, reversible, and built for the next generation of decentralized commerce where anyone can send crypto using simple usernames.
 
@@ -15,7 +15,7 @@ With Secure-Pay, crypto payments aren't just faster and cheaper—they're user-f
 | GitHub Repository | 🔗 [View on GitHub](https://github.com/preyanshu/secure-pay) |
 | Live Demo | 🔗 [Open Secure-Pay](https://secure-pay.preyanshu.me) |
 | Demo Video | 🔗 [Watch on YouTube](https://youtube.com/watch?v=your-video) |
-| SomniaScan – Escrow Contract | 🔗 [Contract Address](https://shannon-explorer.somnia.network/address/0x0b7b80c745Ee4c47Ef0520269be086eeD7868580?tab=txs) |
+| SomniaScan – Smart Contract | 🔗 [Contract Address](https://shannon-explorer.somnia.network/address/0x0b7b80c745Ee4c47Ef0520269be086eeD7868580?tab=txs) |
 
 
 ## The Problems in Web3 Payments Today
@@ -32,41 +32,41 @@ With Secure-Pay, crypto payments aren't just faster and cheaper—they're user-f
 - **Username-Based Payments** – Send crypto using simple usernames instead of wallet addresses
 - **Reversible Payments** – Payments automatically refund if not claimed within expiration time
 - **Time-Bound Security** – Customizable expiration times (0.1-168 hours)
-- **Smart Contract Escrow** – Funds secured until claimed or refunded
+- **Smart Contract Security** – Funds secured until claimed or refunded
 - **On-Chain Transparency** – All payments verifiable on SomniaScan
 - **User-Friendly Interface** – Intuitive design for seamless experience
 - **Cross-Border, Bank-Free** – Instant blockchain settlement worldwide
 
 ## Why Secure-Pay Stands Out from Other Web3 Payment Solutions
 
-### Full Lifecycle
-We're not just payments—we handle the entire escrow lifecycle, including deposits, claims, refunds, and expiration management, all on-chain.
+### Full Payment Lifecycle
+We're not just payments—we handle the entire reversible payment lifecycle, including deposits, claims, refunds, and expiration management, all on-chain.
 
 ### Time-Bound Security
 Using smart contract logic, payments automatically expire and refund if not claimed within the specified timeframe, preventing lost funds.
 
 ### Smart Contract Architecture
-Payment is secured by our deployed smart contract, ensuring funds are protected and transactions are transparent.
+Every payment is secured by our deployed smart contract, ensuring funds are protected and transactions are transparent.
 
 ### Integrated User Portal
-Other tools focus only on basic transfers—Secure-Pay gives users their own secure space to track payments, manage escrows, and view transaction history.
+Other tools focus only on basic transfers—Secure-Pay gives users their own secure space to track payments, manage reversible transactions, and view transaction history.
 
 ## Key Features
 
 ### For Senders
-- **Create Escrow Payments** – Send funds with customizable expiration times
+- **Create Reversible Payments** – Send funds with customizable expiration times
 - **Recipient Selection** – Choose from registered users or enter wallet addresses
 - **Payment Tracking** – Monitor payment status and expiration in real-time
 - **Automatic Refunds** – Unclaimed payments automatically return after expiry
 
 ### For Receivers
-- **Payment Dashboard** – View all incoming escrow payments
+- **Payment Dashboard** – View all incoming reversible payments
 - **One-Click Claims** – Instantly claim payments before expiration
 - **Status Filtering** – Filter payments by status (pending, completed, expired)
 - **Real-Time Updates** – Live countdown timers for payment expiration
 
 ### Smart Contract Features
-- **Escrow Logic** – Funds held securely until claimed or expired
+- **Reversible Payment Logic** – Funds held securely until claimed or expired
 - **Automatic Refunds** – Senders can reclaim funds after expiration
 - **Time Validation** – Prevents invalid expiration timestamps
 - **Gas Optimization** – Efficient contract design for minimal gas costs
@@ -87,7 +87,7 @@ Other tools focus only on basic transfers—Secure-Pay gives users their own sec
 
 ### Smart Contracts
 - **Solidity 0.8.20** for contract development
-- **Escrow Pattern** for secure fund management
+- **Reversible Payment Pattern** for secure fund management
 - **Time-based Logic** for automatic refunds
 - **Gas-optimized** for Somnia's low-fee environment
 
@@ -98,9 +98,9 @@ Other tools focus only on basic transfers—Secure-Pay gives users their own sec
 
 ## Smart Contract Details
 
-### EscrowPayments Contract
+### ReversiblePayments Contract
 ```solidity
-contract EscrowPayments {
+contract ReversiblePayments {
     struct Payment {
         uint256 amount;
         uint256 expiry;      // deadline for receiver to withdraw
@@ -127,34 +127,34 @@ contract EscrowPayments {
 Secure-Pay is a flagship utility dApp that amplifies Somnia's strengths and drives ecosystem growth.
 
 ### 1. Showcasing Somnia's Low-Fee, High-Speed Network
-Escrow payments and automatic refunds become near-instant and cost-effective, demonstrating Somnia's scalable Layer 1 design for high-volume transactions.
+Reversible payments and automatic refunds become near-instant and cost-effective, demonstrating Somnia's scalable Layer 1 design for high-volume transactions.
 
 ### 2. Driving On-Chain Activity
 Every payment, claim, and refund increases Somnia's daily active users and transaction count, boosting network health metrics that attract developers and investors.
 
 ### 3. Expanding Use Cases Beyond DeFi
-Secure-Pay introduces escrow payments, secure commerce, and trustless transactions as new categories, broadening Somnia's ecosystem diversity and showcasing its versatility.
+Secure-Pay introduces reversible payments, secure commerce, and trustless transactions as new categories, broadening Somnia's ecosystem diversity and showcasing its versatility.
 
 ### 4. Attracting Users to Somnia
 Individuals and businesses using Secure-Pay naturally onboard onto Somnia, expanding the user base organically through payment adoption.
 
 ### 5. Future Integrations that Strengthen Somnia's Position
-Our roadmap includes AI-powered payment optimization, multi-token support, and advanced escrow features—all built natively on Somnia, cementing it as the go-to chain for Web3 payment infrastructure.
+Our roadmap includes AI-powered payment optimization, multi-token support, and advanced reversible payment features—all built natively on Somnia, cementing it as the go-to chain for Web3 payment infrastructure.
 
 ## Future Roadmap for Somnia
 
 ### Phase 1: Enhanced Features
 - **Multi-Token Support** – Support for various ERC-20 tokens
-- **Batch Payments** – Send multiple escrow payments in one transaction
+- **Batch Payments** – Send multiple reversible payments in one transaction
 - **Payment Templates** – Save common payment configurations
 
 ### Phase 2: Advanced Functionality
 - **AI Payment Optimization** – Automatically suggest optimal expiration times
 - **Payment Analytics** – Detailed insights into payment patterns
-- **Integration APIs** – Allow third-party apps to integrate escrow payments
+- **Integration APIs** – Allow third-party apps to integrate reversible payments
 
 ### Phase 3: Enterprise Features
-- **Multi-Signature Escrows** – Require multiple approvals for large payments
+- **Multi-Signature Payments** – Require multiple approvals for large payments
 - **Conditional Payments** – Release funds based on external conditions
 - **Compliance Tools** – Generate reports for regulatory requirements
 
