@@ -12,7 +12,7 @@ With Secure-Pay, payments aren't just faster and cheaper—they're secure, verif
 
 | Resource | Resource Link |
 |----------|---------------|
-| GitHub Repository | 🔗 [View on GitHub](https://github.com/yourusername/Secure-Pay) |
+| GitHub Repository | 🔗 [View on GitHub](https://github.com/preyanshu/aecure-Pay) |
 | Live Demo | 🔗 [Open Secure-Pay](https://your-demo-url.com) |
 | Demo Video | 🔗 [Watch on YouTube](https://youtube.com/watch?v=your-video) |
 | SomniaScan – Escrow Contract | 🔗 [Contract Address](https://somnia.xyz/address/your-contract-address) |
