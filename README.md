@@ -1,12 +1,12 @@
-# Secure-Pay – Escrow Payment System for the Somnia Ecosystem
+# Secure-Pay – Reversible Crypto Payments for the Somnia Ecosystem
 
 ## Overview
 
-Secure-Pay is a next-generation escrow payment platform built natively for the Somnia ecosystem, designed to revolutionize how users conduct secure, time-bound transactions with complete transparency and trust.
+Secure-Pay is a next-generation reversible crypto payment platform built natively for the Somnia ecosystem, designed to revolutionize how users send and receive cryptocurrency using simple usernames instead of complex wallet addresses.
 
-From a single, intuitive dashboard, users can create escrow payments with customizable expiration times, guarantee on-chain transparency with every payment verifiable on Somnia's explorer, automate payment claims and refunds, send instant notifications for payment events, and enable cross-border, bank-free settlements in seconds all while leveraging Somnia's ultra-scalable, low-fee infrastructure.
+From a single, intuitive dashboard, users can send crypto payments using usernames with customizable expiration times, claim payments before they expire, automatically refund unclaimed payments, and track all transaction history with complete on-chain transparency. Every payment is secured by smart contract escrow logic, ensuring funds are protected until claimed or automatically returned to the sender.
 
-With Secure-Pay, payments aren't just faster and cheaper—they're secure, verifiable, and built for the next generation of decentralized commerce.
+With Secure-Pay, crypto payments aren't just faster and cheaper—they're user-friendly, reversible, and built for the next generation of decentralized commerce where anyone can send crypto using simple usernames.
 
 ## Resources
 
@@ -20,22 +20,22 @@ With Secure-Pay, payments aren't just faster and cheaper—they're secure, verif
 
 ## The Problems in Web3 Payments Today
 
-- **High gas fees** from complex payment systems
+- **Complex wallet addresses** make sending crypto confusing and error-prone
+- **No way to reverse payments** if sent to wrong address or unclaimed
+- **Poor user experience** with long, complex wallet addresses
 - **No time-bound security** for payments
-- **Lack of escrow mechanisms** for trustless transactions
+- **High gas fees** from complex payment systems
 - **No automatic refunds** for unclaimed payments
-- **Poor user experience** with complex payment flows
-- **No real-time payment tracking** and notifications
 
 ## Secure-Pay's Solution
 
-- **Escrow-Based Payments** – Secure funds in smart contracts with time limits
-- **Automatic Refunds** – Unclaimed payments automatically return to sender
+- **Username-Based Payments** – Send crypto using simple usernames instead of wallet addresses
+- **Reversible Payments** – Payments automatically refund if not claimed within expiration time
 - **Time-Bound Security** – Customizable expiration times (0.1-168 hours)
+- **Smart Contract Escrow** – Funds secured until claimed or refunded
 - **On-Chain Transparency** – All payments verifiable on SomniaScan
-- **Real-Time Notifications** – Instant payment status updates
-- **Cross-Border, Bank-Free** – Instant blockchain settlement worldwide
 - **User-Friendly Interface** – Intuitive design for seamless experience
+- **Cross-Border, Bank-Free** – Instant blockchain settlement worldwide
 
 ## Why Secure-Pay Stands Out from Other Web3 Payment Solutions
 
